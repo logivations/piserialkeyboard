@@ -22,9 +22,9 @@ while 1:
         print(e)
         time.sleep(1)
     if inp:
-        print(inp)
+        print(inp.decode())
         try:
-            kbd.keyout(str(inp))
+            kbd.keyout(inp.decode())
         except Exception as e:
             print(e)
             time.sleep(1)
