@@ -1,12 +1,13 @@
 ##!/usr/bin/env python3
 #from adafruit_hid.keycode import Keycode
 from Keyboard_us import KeyboardLayoutUS
-kb = KeyboardLayoutUS()
+
 
 NULL_CHAR = chr(0)
 import time
 class Keyboard():
     def __init__(self):
+        self.kb = KeyboardLayoutUS()
         pass
 
     def __write_report(report):
@@ -15,10 +16,10 @@ class Keyboard():
     time.sleep(2)
     def keyout(self,k):
         for i in k:
-            key = kb.keycodes(i)
+            key = self.kb.keycodes(i)
             self.__write_report(chr(key[0])+NULL_CHAR+chr(key[1])+NULL_CHAR*5)
             self.__write_report(NULL_CHAR*8)
-        self.__write_report(NULL_CHAR*2+chr(kb.keycodes('\n')[1])+NULL_CHAR*5)
+        self.__write_report(NULL_CHAR*2+chr(self.kb.keycodes('\n')[1])+NULL_CHAR*5)
         self.__write_report(NULL_CHAR*8)
 
 # Press a
@@ -31,6 +32,6 @@ class Keyboard():
 #write_report(NULL_CHAR*8)
 
 if __name__ == '__main__':
-    kb = Keyboard()
-    kb.keyout('Hello World 111')
+    kbd = Keyboard()
+    kbd.keyout('Hello World 111')
 
