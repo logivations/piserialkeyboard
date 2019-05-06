@@ -10,7 +10,7 @@ class Keyboard():
         self.kb = KeyboardLayoutUS()
         pass
 
-    def __write_report(report):
+    def __write_report(self,report):
         with open('/dev/hidg0', 'rb+') as fd:
             fd.write(report.encode())
     time.sleep(2)
