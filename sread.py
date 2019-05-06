@@ -2,7 +2,8 @@
 import time
 import serial
 
-
+from RPi_Keyboard2 import Keyboard
+kbd = Keyboard()
 ser = serial.Serial(
 
                port='/dev/ttyS0',
@@ -20,6 +21,12 @@ while 1:
     except Exception as e:
         print(e)
         time.sleep(1)
-    print(inp)
+    if inp:
+        print(inp)
+        try:
+            kbd.keyout(inp)
+        except Exception as e:
+            print(e)
+            time.sleep(1)
         
 
