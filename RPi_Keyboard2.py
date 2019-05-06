@@ -1,7 +1,12 @@
 ##!/usr/bin/env python3
 #from adafruit_hid.keycode import Keycode
 from Keyboard_us import KeyboardLayoutUS
+import signal, os
 
+def handler(signum, frame):
+    print('Signal handler called with signal', signum)
+    raise OSError("Couldn't open device!")
+signal.signal(signal.SIGALRM, handler)
 
 NULL_CHAR = chr(0)
 import time
@@ -11,9 +16,11 @@ class Keyboard():
         pass
 
     def __write_report(self,report):
+        signal.alarm(5)
         with open('/dev/hidg0', 'rb+') as fd:
             fd.write(report.encode())
-    time.sleep(2)
+        signal.alarm(0)
+
     def keyout(self,k):
         for i in k:
             key = self.kb.keycodes(i)

@@ -13,7 +13,7 @@ ser = serial.Serial(
            )
 while 1:
                i = input('message to send-->')
-               time.sleep(2)
+               #time.sleep(2)
                ser.write(i.encode())
                time.sleep(.01)
                if i=='q':break
