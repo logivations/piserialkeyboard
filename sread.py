@@ -24,7 +24,7 @@ while 1:
     if inp:
         print(inp)
         try:
-            kbd.keyout(inp)
+            kbd.keyout(str(inp))
         except Exception as e:
             print(e)
             time.sleep(1)
