@@ -25,9 +25,9 @@ while 1:
     for el in inp:
         checksum ^= el
     if inp and checksum == 0:
-        print(inp[-2].decode())
+        print(inp.decode()[-1])
         try:
-            kbd.keyout(inp[-2].decode())
+            kbd.keyout(inp.decode()[-1])
         except Exception as e:
             print(e)
             time.sleep(1)
