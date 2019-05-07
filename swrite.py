@@ -21,4 +21,4 @@ while 1:
                #time.sleep(2)
                ser.write(i.encode())
                time.sleep(.01)
-               if i=='q':break
+               if i[0]=='q':break
