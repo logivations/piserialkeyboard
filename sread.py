@@ -23,7 +23,7 @@ while 1:
         time.sleep(1)
     checksum = 0
     for el in inp:
-        checksum ^= ord(el)
+        checksum ^= el
     if inp and checksum == 0:
         print(inp[-2].decode())
         try:
