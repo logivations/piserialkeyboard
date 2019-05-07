@@ -13,6 +13,11 @@ ser = serial.Serial(
            )
 while 1:
                i = input('message to send-->')
+               if not i :continue
+               checksum = 0
+               for el in i:
+                   checksum ^= ord(el)
+               i+=chr(checksum)
                #time.sleep(2)
                ser.write(i.encode())
                time.sleep(.01)

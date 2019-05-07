@@ -21,12 +21,13 @@ while 1:
     except Exception as e:
         print(e)
         time.sleep(1)
-    if inp:
-        print(inp.decode())
+    checksum = 0
+    for el in inp:
+        checksum ^= ord(el)
+    if inp and checksum == 0:
+        print(inp[-2].decode())
         try:
-            kbd.keyout(inp.decode())
+            kbd.keyout(inp[-2].decode())
         except Exception as e:
             print(e)
             time.sleep(1)
-        
-

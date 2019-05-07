@@ -211,7 +211,7 @@ class KeyboardLayoutUS:
             # If this is a shifted char, clear the SHIFT flag and press the SHIFT key.
             if keycode & self.SHIFT_FLAG:
                 keycode &= ~self.SHIFT_FLAG
-                self.keyboard.press(Keycode.SHIFT)
+                #self.keyboard.press(Keycode.SHIFT)
             self.keyboard.press(keycode)
             self.keyboard.release_all()
 
