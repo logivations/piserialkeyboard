@@ -23,10 +23,11 @@ class Keyboard():
 
     def keyout(self,k):
         for i in k:
+            if i == '\r' : i = '\n'
             key = self.kb.keycodes(i)
             self.__write_report(chr(key[0])+NULL_CHAR+chr(key[1])+NULL_CHAR*5)
             self.__write_report(NULL_CHAR*8)
-        self.__write_report(NULL_CHAR*2+chr(self.kb.keycodes('\n')[1])+NULL_CHAR*5)
+        #self.__write_report(NULL_CHAR*2+chr(self.kb.keycodes('\n')[1])+NULL_CHAR*5)
         self.__write_report(NULL_CHAR*8)
 
 # Press a

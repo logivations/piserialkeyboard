@@ -27,21 +27,20 @@ class Keyboard():
 
     def keyout(self,k):
         for i in k:
-            print(i)
+            #print(i)
+            if i=='\r':i='\n'
             try:
              if i =='[':
                 #i = EIGHT
                 self.__write_report(chr(16+64)+NULL_CHAR+chr(EIGHT)+NULL_CHAR*5)
              elif i ==']':
                 #i= NINE 
-                #self.__write_report(NULL_CHAR*2+chr(230)+NULL_CHAR*5)
                 self.__write_report(chr(16+64)+NULL_CHAR+chr(NINE)+NULL_CHAR*5)
              else:
                 key = self.kb.keycodes(i)
                 self.__write_report(chr(key[0])+NULL_CHAR+chr(key[1])+NULL_CHAR*5)
-                print('we tried to write')
             except Exception as e:
-                print('in RPI',e)
+                print('in RPikeyboard',e)
                 #key = self.kb.keycodes(i)
                 #self.__write_report(chr(key[0])+NULL_CHAR+chr(key[1])+NULL_CHAR*5)
             self.__write_report(NULL_CHAR*8)
