@@ -80,12 +80,12 @@ class KeyboardLayoutDE:
         b'\x00'  # ENQ
         b'\x00'  # ACK
         b'\x00'  # BEL \a
-        b'\x00'  # BS BACKSPACE \b (called DELETE in the usb.org document)
-        b'\x00'  # TAB \t
-        b'\x00'  # LF \n (called Return or ENTER in the usb.org document)
+        b'\x2a'  # BS BACKSPACE \b (called DELETE in the usb.org document)
+        b'\x2b'  # TAB \t
+        b'\x28'  # LF \n (called Return or ENTER in the usb.org document)
         b'\x00'  # VT \v
         b'\x00'  # FF \f
-        b'\x00'  # CR \r
+        b'\x28'  # CR \r
         b'\x00'  # SO
         b'\x00'  # SI
         b'\x00'  # DLE

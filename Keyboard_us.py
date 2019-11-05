@@ -64,7 +64,7 @@ class KeyboardLayoutUS:
         b'\x28'    # LF \n (called Return or ENTER in the usb.org document)
         b'\x00'    # VT \v
         b'\x00'    # FF \f
-        b'\x00'    # CR \r
+        b'\x28'    # CR \r
         b'\x00'    # SO
         b'\x00'    # SI
         b'\x00'    # DLE
