@@ -1,6 +1,7 @@
 ##!/usr/bin/env python3
 #from adafruit_hid.keycode import Keycode
-from Keyboard_us import KeyboardLayoutUS
+#english to german with if then else will be outdated after German keyboard is added as Keyboard:de.py
+from Keyboard_de import KeyboardLayoutDE
 import signal, os
 
 def handler(signum, frame):
@@ -16,7 +17,7 @@ NULL_CHAR = chr(0)
 import time
 class Keyboard():
     def __init__(self):
-        self.kb = KeyboardLayoutUS()
+        self.kb = KeyboardLayoutDE()
         pass
 
     def __write_report(self,report):
@@ -30,10 +31,10 @@ class Keyboard():
             #print(i)
             if i=='\r':i='\n'
             try:
-             if i =='[':
+             if i =='[' and False:
                 #i = EIGHT
                 self.__write_report(chr(16+64)+NULL_CHAR+chr(EIGHT)+NULL_CHAR*5)
-             elif i ==']':
+             elif i ==']' and False:
                 #i= NINE 
                 self.__write_report(chr(16+64)+NULL_CHAR+chr(NINE)+NULL_CHAR*5)
              else:
